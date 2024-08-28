@@ -1,4 +1,4 @@
-There is a split view kind of structure, where left side indicates the List of shopping items and right side indiacted the list of items added in cart by user.
+There exists a “dual-pane interface,” where the left pane displays the list of shopping items, and the right pane shows the items added to the user’s cart.
 
 ## Expectation
 1. Upon selecting an item from the list, it should be added to the cart.
