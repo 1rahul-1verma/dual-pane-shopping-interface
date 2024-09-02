@@ -1,11 +1,11 @@
 export const Cart = ({selectedItems = [], onRemove}) => {
-    return <div style={{maxHeight: '50vh', overflow: 'auto', position: 'sticky', top: '8px', display: 'flex', border: '1px solid black', padding: '16px', borderRadius: '8px', gap: '8px', width: '100%', flexDirection: 'column', minWidth: '200px'}}>
-        <div style={{color:'blue', fontSize:'24px'}}>Cart</div>
+    return <div className="max-h-100 overflow-auto sticky top-2 flex border border-black p-4 rounded-xl gap-2 w-full flex-col">
+        <div className="text-xl text-indigo-500">Cart</div>
         {selectedItems.map((item, index) => (
         <div style={{display: 'flex'}} data-testid={`cart-item-${index+1}`}>
-            <div style={{flex: 'none'}}>{index+1}. </div>
-            <div style={{flexGrow: 1, flexBasis:'0%', flexShrink: 1}}>{item.name}</div>
-            <div style={{flex: 'none', border: '1px solid red', padding: '2px', paddingLeft:'4px', paddingRight: '4px', borderRadius: '8px', color: 'red'}} onClick={() => onRemove(item)} data-testid={`remove-item-${index+1}`}> Remove </div>
+            <div className="flex-none">{index+1}. </div>
+            <div className="flex-1" >{item.name}</div>
+            <button className="flex-none border border-rose-600 py-1 px-2 text-rose-600 rounded-xl" onClick={() => onRemove(item)} data-testid={`remove-item-${index+1}`}> Remove </button>
         </div>))}
     </div>
 }
