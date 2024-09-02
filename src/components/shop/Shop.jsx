@@ -4,15 +4,16 @@ import { Cart } from './components/Cart';
 
 export const Shop = () => {
 
-    return <div style={{width: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', gap:'20px'}}> 
-            <div style={{fontSize:'32px', display: 'flex', justifyContent: 'center'}}>Welcome to the shop</div>
 
-            <div style={{display: 'flex', flexDirection: 'row', flexGrow: 1, width: '100%'}}>
-                <div style={{flexGrow: 1, padding: '16px'}}>
-                    <ItemsList />
+    return <div className="w-full flex justify-center flex-col gap-5 p-8"> 
+            <div className="text-2xl flex justify-center">Welcome to the shop</div>
+
+            <div  className="flex flex-1 w-full">
+                <div className="flex-1 p-4">
+                    <ItemsList/>
                 </div>
 
-                <div style={{flexGrow: 1, padding: '16px'}}>
+                <div className="flex-1 p-4">
                     <Cart/>
                 </div>
             </div>

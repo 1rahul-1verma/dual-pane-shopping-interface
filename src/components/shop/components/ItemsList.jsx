@@ -17,10 +17,12 @@ const ITEMS_LIST = [
 const Item = ({isSelected, onSelect, item}) => {
     const _onSelect = useCallback(() =>onSelect(item), [onSelect, item]);
 
-    return <div style={{border:'1px solid black', borderRadius: '8px', padding:'16px', flexGrow: 1, display: 'flex', flexDirection: 'column', borderColor : isSelected ? 'green' : 'black', color : isSelected ? 'green' : 'black', cursor: 'pointer'}} onClick={_onSelect} data-testid={`item-${item.id}`}>
-        <div style={{display: 'flex', justifyContent: 'center', fontSize:'24px', fontWeight: '600',  cursor: 'pointer'}}>{item.name}</div>
-        <div>{item.description}</div>
-    </div>
+    return <div className={`border rounded-xl p-4 flex-col max-w-60 relative ${isSelected ? 'border-lime-600 text-lime-600' : 'border-black'}`} onClick={_onSelect} data-testid={`item-${item.id}`}>
+            <div className="absolute inset-2"><input type="checkbox" id={`item-${item.id}`} checked={isSelected} /></div>
+            <div className="flex justify-center text-xl font-semibold">{item.name}</div>
+            <div className="text-center">{item.description}</div>
+        </div>
+
 }
 
 export const ItemsList = () => {
@@ -33,9 +35,12 @@ export const ItemsList = () => {
         });
     }, []);
 
-    return <div style={{display: 'flex', border: '1px solid black', padding: '16px', borderRadius: '8px', gap: '8px', width: '100%', flexWrap: 'wrap'}}>
+    return <div className="flex flex-col border border-black rounded-xl p-4 gap-4">
+        <div className="flex-none flex items-center justify-center px-8 w-full text-xl text-indigo-500">Select Item to purchase</div>
+     <div className="flex-1 flex justify-between gap-2 w-full flex-wrap">
         {ITEMS_LIST.map(item => (
             <Item key={item.id} item={item} onSelect={onSelect} isSelected={selectedItems.includes(item)} />
         ))}
+    </div>
     </div>
 }
