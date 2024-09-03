@@ -1,6 +1,6 @@
 export const Cart = ({selectedItems = [], onRemove}) => {
-    return <div className="max-h-100 overflow-auto sticky top-2 flex border border-black p-4 rounded-xl gap-2 w-full flex-col">
-        <div className="text-xl font-bold text-indigo-500">Cart</div>
+    return <div className="max-h-100 overflow-auto sticky top-2 flex border-2 border-gray-200 p-4 rounded-xl gap-2 w-full flex-col">
+        <div className="text-2xl font-bold text-indigo-600">Cart</div>
         {selectedItems.length ? selectedItems.map((item, index) => (
         <div key={item.id} style={{display: 'flex'}} data-testid={`cart-item-${index+1}`}>
             <div className="flex-none">{index+1}. </div>
