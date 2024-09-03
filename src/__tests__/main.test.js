@@ -1,4 +1,5 @@
-import App from '../App';
+import { Shop } from '../components/Shop';
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
@@ -12,21 +13,21 @@ jest.mock('react', () => {
   };
 });
 
-test('Should render Welcome to the shop', async () => {
-  render(<App />);
+test('Should render Shopping Cart!', async () => {
+  render(<Shop />);
 
-  screen.getByText('Welcome to the shop');
+  screen.getByText('Shopping Cart!');
 });
 
 test('Should render empty cart initially', async () => {
-  render(<App />);
+  render(<Shop />);
 
   const nonExistingElement = screen.queryByTestId('cart-item-1');
   expect(nonExistingElement).not.toBeInTheDocument();
 });
 
 test('should add item to cart on item click', async () => {
-  render(<App />);
+  render(<Shop />);
 
   const itemToSelect = screen.getByTestId('item-1');
 
@@ -36,7 +37,7 @@ test('should add item to cart on item click', async () => {
 });
 
 test('Should remove item from cart', async () => {
-  render(<App />);
+  render(<Shop />);
 
   const itemToSelect = screen.getByTestId('item-1');
 
@@ -53,7 +54,7 @@ test('Should remove item from cart', async () => {
 });
 
 test('Should remove item from cart if item is selected again from select list', async () => {
-  render(<App />);
+  render(<Shop />);
 
   const itemToSelect1 = screen.getByTestId('item-1');
   const itemToSelect2 = screen.getByTestId('item-2');
