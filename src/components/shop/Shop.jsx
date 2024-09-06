@@ -11,11 +11,11 @@ export const Shop = () => {
 
       <div className="flex flex-1 w-full gap-4">
         <div className="flex-1">
-          <ItemsList selectedItems={selectedItems} onSelect={onSelect} />
+          <ItemsList />
         </div>
 
         <div className="flex-1">
-          <Cart selectedItems={selectedItems} onRemove={onSelect} />
+          <Cart />
         </div>
       </div>
     </div>
